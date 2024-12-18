@@ -6,7 +6,7 @@
 /*   By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:39:37 by mzhivoto          #+#    #+#             */
-/*   Updated: 2024/12/16 17:58:44 by mzhivoto         ###   ########.fr       */
+/*   Updated: 2024/12/18 15:06:52 by mzhivoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-#include <stdio.h>
-#include <stdarg.h>
-#include <unistd.h>
-
-void ft_putchar(char c)
+int ft_putchar(char c)
 {
-    write(1, &c, 1);
+    if (write(1, &c, 1) == -1)
+        return (-1);
+    return (c);
 }
 void ft_putnbr(int nb)
 {
@@ -49,15 +47,16 @@ void ft_putstr(char *str)
     write(1, str, len);
 }
 
-void mini_printf(const char *format, ...)
+int ft_printf(const char *format, ...)
 {
     va_list args;
 
     va_start(args, format);
-    // printf("test1: %c\n", format);
+    printf("Starting ft_printf with format: %s\n", format); // Debugging
     while (*format)
     {
         // printf("test3: %c\n", format);
+        printf("Current character: %c\n", *format); // Debugging
         if (*format == '%')
         {
 
@@ -86,6 +85,7 @@ void mini_printf(const char *format, ...)
     }
 
     va_end(args);
+    return (0);
 }
 
 int main(void)
@@ -93,7 +93,8 @@ int main(void)
     char *s = "abc";
     // char k = 'c';
     int num = 42;
-    printf("Hello %x, number %d\n", 87687678, num);
+    // printf("Hello %x, number %d\n", 87687678, num);
+    printf("Hello %s, number %d\n", s, num);
     int result = printf("A%s, B %d\n", s, num);
     printf("result %d\n", result);
 

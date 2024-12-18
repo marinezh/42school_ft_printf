@@ -6,7 +6,7 @@
 /*   By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:39:37 by mzhivoto          #+#    #+#             */
-/*   Updated: 2024/12/16 16:01:50 by mzhivoto         ###   ########.fr       */
+/*   Updated: 2024/12/18 14:36:33 by mzhivoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,30 @@ void ft_putnbr(int nb)
     ft_putchar(nbr % 10 + '0');
 }
 
-// void ft_putstr(char *str)
-// {
-//     int len;
-//     len = 0;
-//     while (str[len])
-//     {
-//         len++;
-//     }
-//     write(1, str, len);
-// }
+int ft_putstr(char *str)
+{
+    int len;
+    len = 0;
+    while (str[len])
+    {
+        len++;
+    }
+    write(1, str, len);
+    return (len);
+}
 
 int main(void)
 {
-    char *s = "cspdiuxX%";
+    char *s = "hello";
     char k = 'c';
     int num = 42;
+    int len = ft_putstr(s);
+    printf("len %d\n", len);
     // ft_putstr("hello\n");
     // ft_putstr("hi\n");
-    ft_putnbr(num);
-    ft_putchar('\n');
-    ft_putchar(k);
-    ft_putchar('\n');
+    // ft_putnbr(num);
+    // ft_putchar('\n');
+    // ft_putchar(k);
+    // ft_putchar('\n');
     return (0);
 }
