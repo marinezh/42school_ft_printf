@@ -6,7 +6,7 @@
 /*   By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:39:37 by mzhivoto          #+#    #+#             */
-/*   Updated: 2024/12/18 15:06:52 by mzhivoto         ###   ########.fr       */
+/*   Updated: 2024/12/19 19:39:35 by mzhivoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int ft_putchar(char c)
 {
     if (write(1, &c, 1) == -1)
         return (-1);
-    return (c);
+    return (1);
 }
 void ft_putnbr(int nb)
 {
@@ -61,7 +61,11 @@ int ft_printf(const char *format, ...)
         {
 
             format++;
-            if (*format == 'd')
+            if (*format == 'c')
+            {
+                ft_putchar(va_arg(args, int));
+            }
+            if (*format == 'd' || *format == 'i')
             {
                 int num = va_arg(args, int);
                 ft_putnbr(num);
@@ -74,7 +78,7 @@ int ft_printf(const char *format, ...)
             else
             {
                 ft_putchar('%'); // Print the '%' character
-                ft_putchar(*format);
+                // ft_putchar(*format);
             }
         }
         else
@@ -91,13 +95,19 @@ int ft_printf(const char *format, ...)
 int main(void)
 {
     char *s = "abc";
-    // char k = 'c';
+    char k = 'w';
     int num = 42;
+    char *ptr;
+    char *ptr1;
+    unsigned int hex_num = 0x26475;
+    ptr1 = NULL;
+    ptr = "Pointer 12345";
+    printf("pointer check %p\n , %p\n", ptr, ptr1);
     // printf("Hello %x, number %d\n", 87687678, num);
-    printf("Hello %s, number %d\n", s, num);
+    printf("Hello %s, char is %c, number %d\n", s, k, num);
     int result = printf("A%s, B %d\n", s, num);
     printf("result %d\n", result);
-
+    printf("print hex %x and %X\n", hex_num, hex_num);
     // ft_putstr("hello\n");
     // ft_putstr("hello\n");
     // ft_putstr("hi\n");
