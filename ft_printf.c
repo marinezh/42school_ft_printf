@@ -6,7 +6,7 @@
 /*   By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:39:37 by mzhivoto          #+#    #+#             */
-/*   Updated: 2024/12/19 19:39:35 by mzhivoto         ###   ########.fr       */
+/*   Updated: 2025/01/02 23:33:21 by mzhivoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-int ft_putchar(char c)
-{
-    if (write(1, &c, 1) == -1)
-        return (-1);
-    return (1);
-}
+
 void ft_putnbr(int nb)
 {
     unsigned int nbr;
