@@ -6,19 +6,14 @@
 /*   By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:57:32 by mzhivoto          #+#    #+#             */
-/*   Updated: 2024/12/19 19:24:02 by mzhivoto         ###   ########.fr       */
+/*   Updated: 2025/01/02 23:22:08 by mzhivoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-int ft_putchar(char c)
-{
-    if (write(1, &c, 1) == -1)
-        return (-1);
-    return (1);
-}
+
 
 int ft_puthex(unsigned int n, int lowercase)
 {
@@ -39,7 +34,7 @@ int ft_puthex(unsigned int n, int lowercase)
 
     // Start the conversion by printing the hexadecimal digits
     if (n >= 16)
-        count += ft_puthex(n / 16, lowercase);  // Recursively process the higher order digits
+        count =count + ft_puthex(n / 16, lowercase);  // Recursively process the higher order digits
 
     // Print the current digit
     count += ft_putchar(hex_digits[n % 16]);  // Print the remainder (lowest digit)
@@ -48,7 +43,10 @@ int ft_puthex(unsigned int n, int lowercase)
 }
 int main() {
     unsigned int n = 3054;
-    int count = ft_puthex(n, 0);  // 1 for lowercase
-    printf("\nTotal characters printed: %d\n", count);
+    unsigned int n2 = 0xFF;
+   // int count = ft_puthex(n, 0);  // 1 for lowercase
+    int count2 = ft_puthex(n2, 0);  // 1 for lowercase
+    //printf("\nTotal characters printed: %d\n", count);
+    
     return 0;
 }
