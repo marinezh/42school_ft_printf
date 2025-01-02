@@ -6,7 +6,7 @@
 /*   By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:39:37 by mzhivoto          #+#    #+#             */
-/*   Updated: 2025/01/02 23:33:21 by mzhivoto         ###   ########.fr       */
+/*   Updated: 2025/01/02 23:37:00 by mzhivoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,6 @@
 #include <unistd.h>
 
 
-void ft_putnbr(int nb)
-{
-    unsigned int nbr;
-
-    if (nb < 0)
-    {
-        ft_putchar('-');
-        nbr = nb * -1;
-    }
-    else
-        nbr = nb;
-    if (nbr >= 10)
-        ft_putnbr(nbr / 10);
-    ft_putchar(nbr % 10 + '0');
-}
-
-void ft_putstr(char *str)
-{
-    int len;
-    len = 0;
-    while (str[len])
-    {
-        len++;
-    }
-    write(1, str, len);
-}
 
 int ft_printf(const char *format, ...)
 {
