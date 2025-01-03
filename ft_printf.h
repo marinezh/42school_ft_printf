@@ -6,7 +6,7 @@
 /*   By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 23:27:19 by mzhivoto          #+#    #+#             */
-/*   Updated: 2025/01/02 23:44:07 by mzhivoto         ###   ########.fr       */
+/*   Updated: 2025/01/03 21:39:53 by mzhivoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 //# include "libft/libft.h"
 # include <stdarg.h>
+# include <unistd.h>
 
 int	ft_putchar(char c);
 int ft_putstr(char *str);

@@ -6,14 +6,14 @@
 /*   By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:39:37 by mzhivoto          #+#    #+#             */
-/*   Updated: 2025/01/02 23:37:00 by mzhivoto         ###   ########.fr       */
+/*   Updated: 2025/01/03 21:41:18 by mzhivoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
-
+#include "ft_printf.h"
 
 
 int ft_printf(const char *format, ...)
@@ -61,28 +61,28 @@ int ft_printf(const char *format, ...)
     return (0);
 }
 
-int main(void)
-{
-    char *s = "abc";
-    char k = 'w';
-    int num = 42;
-    char *ptr;
-    char *ptr1;
-    unsigned int hex_num = 0x26475;
-    ptr1 = NULL;
-    ptr = "Pointer 12345";
-    printf("pointer check %p\n , %p\n", ptr, ptr1);
-    // printf("Hello %x, number %d\n", 87687678, num);
-    printf("Hello %s, char is %c, number %d\n", s, k, num);
-    int result = printf("A%s, B %d\n", s, num);
-    printf("result %d\n", result);
-    printf("print hex %x and %X\n", hex_num, hex_num);
-    // ft_putstr("hello\n");
-    // ft_putstr("hello\n");
-    // ft_putstr("hi\n");
-    // ft_putnbr(num);
-    // ft_putchar('\n');
-    // ft_putchar(k);
-    // ft_putchar('\n');
-    return (0);
-}
+// int main(void)
+// {
+//     char *s = "abc";
+//     char k = 'w';
+//     int num = 42;
+//     char *ptr;
+//     char *ptr1;
+//     unsigned int hex_num = 0x26475;
+//     ptr1 = NULL;
+//     ptr = "Pointer 12345";
+//     printf("pointer check %p\n , %p\n", ptr, ptr1);
+//     // printf("Hello %x, number %d\n", 87687678, num);
+//     printf("Hello %s, char is %c, number %d\n", s, k, num);
+//     int result = printf("A%s, B %d\n", s, num);
+//     printf("result %d\n", result);
+//     printf("print hex %x and %X\n", hex_num, hex_num);
+//     // ft_putstr("hello\n");
+//     // ft_putstr("hello\n");
+//     // ft_putstr("hi\n");
+//     // ft_putnbr(num);
+//     // ft_putchar('\n');
+//     // ft_putchar(k);
+//     // ft_putchar('\n');
+//     return (0);
+// }

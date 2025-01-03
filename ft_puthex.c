@@ -6,13 +6,13 @@
 /*   By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:57:32 by mzhivoto          #+#    #+#             */
-/*   Updated: 2025/01/02 23:22:08 by mzhivoto         ###   ########.fr       */
+/*   Updated: 2025/01/03 21:42:09 by mzhivoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
-
+#include "ft_printf.h"
 
 
 int ft_puthex(unsigned int n, int lowercase)
@@ -41,12 +41,12 @@ int ft_puthex(unsigned int n, int lowercase)
 
     return count;
 }
-int main() {
-    unsigned int n = 3054;
-    unsigned int n2 = 0xFF;
-   // int count = ft_puthex(n, 0);  // 1 for lowercase
-    int count2 = ft_puthex(n2, 0);  // 1 for lowercase
-    //printf("\nTotal characters printed: %d\n", count);
+// int main() {
+//     unsigned int n = 3054;
+//     unsigned int n2 = 0xFF;
+//    // int count = ft_puthex(n, 0);  // 1 for lowercase
+//     int count2 = ft_puthex(n2, 0);  // 1 for lowercase
+//     //printf("\nTotal characters printed: %d\n", count);
     
-    return 0;
-}
+//     return 0;
+// }
