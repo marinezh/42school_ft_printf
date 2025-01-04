@@ -6,7 +6,7 @@
 #    By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/10 14:19:08 by mzhivoto          #+#    #+#              #
-#    Updated: 2025/01/04 00:43:05 by mzhivoto         ###   ########.fr        #
+#    Updated: 2025/01/04 20:48:16 by mzhivoto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC = ft_printf.c\
 	ft_putnbr.c\
 	ft_putstr.c\
 	ft_put_unsigned.c\
+	ft_putptr.c\
 
 
 OBJ = $(SRC:.c=.o)
