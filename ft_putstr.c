@@ -6,7 +6,7 @@
 /*   By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 23:38:11 by mzhivoto          #+#    #+#             */
-/*   Updated: 2025/01/02 23:42:41 by mzhivoto         ###   ########.fr       */
+/*   Updated: 2025/01/04 21:21:25 by mzhivoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,3 +22,10 @@ int ft_putstr(char *str)
         len++;
     return (write(1, str, len));
 }
+// #include "stdio.h"
+
+// int main()
+// {
+// 	int count = ft_putstr("hei");
+// 	printf("count %d\n", count);
+// }
