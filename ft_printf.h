@@ -6,7 +6,7 @@
 /*   By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 23:27:19 by mzhivoto          #+#    #+#             */
-/*   Updated: 2025/01/03 21:39:53 by mzhivoto         ###   ########.fr       */
+/*   Updated: 2025/01/04 00:42:44 by mzhivoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_putchar(char c);
 int ft_putstr(char *str);
 void ft_putnbr(int nb);
 int ft_puthex(unsigned int n, int lowercase);
+int	ft_put_unsigned(unsigned int n);
 
 int	ft_printf(const char *format, ...);
 
