@@ -6,7 +6,7 @@
 /*   By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 17:55:40 by mzhivoto          #+#    #+#             */
-/*   Updated: 2025/01/04 21:01:37 by mzhivoto         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:31:13 by mzhivoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,44 @@
 
 static int ft_puthexx(unsigned long num)
 {
-    int count = 0;
-    const char *hex_digits = "0123456789abcdef";
+	int count = 0;
+	const char *hex_digits = "0123456789abcdef";
 
-    if (num >= 16)
-    {
-        count += ft_puthexx(num / 16); // Print higher-order digits
-    }
-    count += ft_putchar(hex_digits[num % 16]); // Print the current digit
+	if (num >= 16)
+	{
+		count += ft_puthexx(num / 16); // Print higher-order digits
+	}
+	count += ft_putchar(hex_digits[num % 16]); // Print the current digit
 
-    return count;
+	return count;
 }
 
 // Function to print a pointer in hexadecimal format
 int ft_putptr(void *ptr)
 {
-    int count = 0;
+	int count = 0;
 
-    count += ft_putstr("0x"); // Print the "0x" prefix
-    count += ft_puthexx((unsigned long)ptr); // Print the address in hexadecimal
-
-    return count;
+	if (!ptr)
+		return (ft_putstr("(nil)"));
+	// return (-1);
+	count += ft_putstr("0x");				 // Print the "0x" prefix
+	count += ft_puthexx((unsigned long)ptr); // Print the address in hexadecimal
+	if (count < 0)
+		return (-1);
+	return count;
 }
+// static int print_long_hex(unsigned long int n)
+// {
+// 	if (n < 16)
+// 		return (print_hex_char(n, 1));
+// 	else
+// 		return (print_long_hex(n / 16) + print_hex_char(n % 16, 1));
+// }
+
+// int ft_putptr(void *p)
+// {
+// 	return (write(1, "0x", 2) + print_long_hex((unsigned long int)p));
+// }
 // #include <stdio.h>
 
 // int main()

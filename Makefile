@@ -6,11 +6,11 @@
 #    By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/10 14:19:08 by mzhivoto          #+#    #+#              #
-#    Updated: 2025/01/04 20:48:16 by mzhivoto         ###   ########.fr        #
+#    Updated: 2025/01/07 14:22:23 by mzhivoto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ftprintf.a
+NAME = libftprintf.a
 
 # Compiler and flags
 CC = cc
@@ -23,7 +23,7 @@ SRC = ft_printf.c\
 	ft_putnbr.c\
 	ft_putstr.c\
 	ft_put_unsigned.c\
-	ft_putptr.c\
+	ft_putptr.c
 
 
 OBJ = $(SRC:.c=.o)
@@ -50,6 +50,6 @@ re: fclean all
 
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
+	gcc -nostartfiles -shared -o ftprintf.so $(OBJ)
 	
 .PHONY: all clean fclean re
