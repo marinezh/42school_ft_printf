@@ -1,137 +1,75 @@
 #include <stdio.h>
+#include <stdarg.h>
 #include <unistd.h>
 #include "ft_printf.h"
+#include <limits.h>
 
 int main(void)
 {
-    char *ptr;
-    char *ptr1;
+	//1. string test
+	puts("STRING TEST:");
+	char *s = "hello";
+	ft_printf("string 1: %s\n", s);
+	printf("string 2: %s\n", s);
+	//2. char test
+	puts("CHAR TEST:");
+	char k = 'w';
+	ft_printf("char 1: %c\n", k);
+	printf("char 2: %c\n", k);
+	//3. integer test
+	puts("INT TEST:");
+	int num = 42;
+	ft_printf("num 1: %d, %d, %d, %d, %d\n", -42, 0, num, INT_MAX, INT_MIN );
+	printf("num 2: %d, %d, %d, %d, %d\n", -42, 0, num, INT_MAX, INT_MIN);
+	//4. pointer test
+	puts("POINTER TEST:");
+	int x = 5;
+	int *ptr =&x;
+	char *ptr3 = "hi";
+	char *ptr4 = NULL;
+	ft_printf("ptr 1:%p %p %p\n", ptr, ptr3, ptr4);
+	printf("ptr 2:%p %p %p\n", ptr, ptr3, ptr4);
+	//5. hexagon test
+	puts("HEX TEST:");
+	unsigned int hex_num = 26475;
+	ft_printf("print hex 1 %x and %X\n", hex_num, hex_num);
+	printf("print hex 2 %x and %X\n", hex_num, hex_num);
+	//6. unsigned int
+	puts("UNSIGNED TEST:");
+	unsigned int n = 4252;
+	ft_printf("print unsigned 1 %u\n", n);
+	printf("print unsigned 2 %u\n", n);
+	//7. %
+	puts("INVALID SPEC TEST:");
+	ft_printf("percent 1 %\n");
+	printf("percent 2 %\n");
+	ft_printf("percent 1 %%\n");
+	printf("percent 2 %%\n");
+	
+	int i, j;
+	
+	i = printf("1abc %z\n");
+    printf("%d\n", i);
+    
+    j = ft_printf("2abc %z\n");
+    printf("%d\n", j);
 
-    ptr1 = NULL;
-    ptr = "Pointer 12345";
-    printf("⭐ Test case: just text ⭐\n");
-    if (ft_printf("some text\n") == printf("some text\n"))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: c ⭐\n");
-    if (ft_printf("%c\n", 'Y') == printf("%c\n", 'Y'))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: s ⭐\n");
-    if (ft_printf("String here: %s\n", "String") == printf("String here: %s\n", "String"))
-        printf("\nYES 🔥\n\n");
-    else
-    {
-        printf("\nNOOO 💀\n\n");
-    }
-    printf("⭐ Test case: p ⭐\n");
-    if (ft_printf("Pointer here: %p\n", ptr) == printf("Pointer here: %p\n", ptr))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    void *p2 = (void *)0x1234567890ABCDEF;
-    if (ft_printf("%p\n", p2) == printf("%p\n", p2))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: d ⭐\n");
-    if (ft_printf("This is digit %d\n", 5) == printf("This is digit %d\n", 5))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    if (ft_printf("%d", -42) == printf("%d", -42))
-        printf("\n\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    if (ft_printf("%d%d%d%d", -42, 42, 0, 1000000000) == printf("%d%d%d%d", -42, 42, 0, 1000000000))
-        printf("\n\nYES 🔥\n\n");
-    else
-        printf("\n\nNOOO 💀\n\n");
-    printf("⭐ Test case: i ⭐\n");
-    if (ft_printf("Integer: %i\n", 3) == printf("Integer: %i\n", 3))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: u ⭐\n");
-    if (ft_printf("Unsigned: %u\n", 456567) == printf("Unsigned: %u\n", 456567))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    if (ft_printf("Unsigned negative: %u\n", -456567) == printf("Unsigned negative: %u\n", -456567))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: x/X ⭐\n");
-    if (ft_printf("%x\n", 3495) == printf("%x\n", 3495))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    if (ft_printf("%X\n", -345) == printf("%X\n", -345))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: %%%% ⭐\n");
-    if (ft_printf("%%\n") == printf("%%\n"))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: %% ⭐\n");
-    if (ft_printf("%\n") == printf("%\n"))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: multiply conversions of the same type ⭐\n");
-    if (ft_printf("%c%c%c%c%c%c", '1', '2', '3', '4', '5', '6') == printf("%c%c%c%c%c%c", '1', '2', '3', '4', '5', '6'))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    if (ft_printf("%c %c %c %c %c %c", '1', '2', '3', '4', '5', '6') == printf("%c %c %c %c %c %c", '1', '2', '3', '4', '5', '6'))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: multiply conversions of the different types ⭐\n");
-    if (ft_printf("%p%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %c%%", ptr, 'A', "42", 42, 42, 42, 42, 42, 'B', "-42", -42, -42, -42, -42, 42, 'C', "0", 0, 0, 0, 0, 42, '0') == printf("%p%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %c%%", ptr, 'A', "42", 42, 42, 42, 42, 42, 'B', "-42", -42, -42, -42, -42, 42, 'C', "0", 0, 0, 0, 0, 42, '0'))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: #, 0, -, +, . ⭐\n");
-    if (ft_printf("#, 0, -, +, .") == printf("#, 0, -, +, ."))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: #, 0, -, +, . in different boxes ⭐\n");
-    if (ft_printf("#"
-                  "0"
-                  "-"
-                  "+"
-                  ".") == printf("#"
-                                 "0"
-                                 "-"
-                                 "+"
-                                 "."))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: NULL pointer as s ⭐\n");
-    if (ft_printf("%s", ptr1) == printf("%s", ptr1))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: NULL pointer as p ⭐\n");
-    if (ft_printf("%p", ptr1) == printf("%p", ptr1))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: Empty ⭐\n");
-    if (ft_printf("") == printf(""))
-        printf("\nYES 🔥\n\n");
-    else
-        printf("\nNOOO 💀\n\n");
-    printf("⭐ Test case: Error ⭐\n");
+	//8. Total chars check
+	puts("TOTAL CHARS TEST");
+	int total_chars1 = 0;
+	int total_chars2 = 0;
+	int num2 = 42;
 
-    fclose(stdout);
+	total_chars1 = ft_printf("1%s,%s,%s,%d\n", "one", "two", "3", num2);
+	ft_putchar('\n');
+	total_chars2 = printf("2%s,%s,%s,%d\n", "one", "two", "3", num);
+
+	printf("total: %d\n", total_chars1);
+	printf("total2: %d\n", total_chars2);
+
+	//WRITE ERRROR TEST
+	puts("WRITE ERRROR TEST");
+	fclose(stdout);
     int a = ft_printf("%c", 'A');
     int aa = printf("%c", 'A');
     int b = ft_printf("%d", 1);
@@ -148,55 +86,24 @@ int main(void)
     int gg = printf("%%", 0);
     int h = ft_printf("Hello", 0);
     int hh = printf("Hello", 0);
-
     freopen("/dev/tty", "w", stdout);
 
-    if (a == aa)
-        printf("\n case c: %d YES 🔥\n\n", a);
-    else
-        printf("\n case c: %d NOOO 💀\n\n", a);
+	printf("1%d\n", a);
+	printf("2%d\n", aa);
+	printf("1%d\n", b);
+	printf("2%d\n", bb);
+	printf("1%d\n", c);
+	printf("2%d\n", cc);
+	printf("1%d\n", d);
+	printf("2%d\n", dd);
+	printf("1%d\n", e);
+	printf("2%d\n", ee);
+	printf("1%d\n", f);
+	printf("2%d\n", ff);
+	printf("1%d\n", g);
+	printf("2%d\n", gg);
+	printf("1%d\n", h);
+	printf("2%d\n", hh);
 
-    if (b == bb)
-        printf("\n case d: %d YES 🔥\n\n", b);
-    else
-        printf("\n case d: %d NOOO 💀\n\n", b);
-    if (c == cc)
-    {
-        printf("\n case u: %d YES 🔥\n\n", c);
-        printf("\n case u: %d YES 🔥\n\n", cc);
-    }
-
-    else
-    {
-        printf("\n case u: %d NOOO 💀\n\n", c);
-        printf("\n case u: %d NOOO 💀\n\n", cc);
-    }
-
-    if (d == dd)
-        printf("\n case s: %d YES 🔥\n\n", d);
-    else
-        printf("\n case s: %d NOOO 💀\n\n", d);
-    if (e == ee)
-        printf("\n case p: %d YES 🔥\n\n", e);
-    else
-        printf("\n case p: %d NOOO 💀\n\n", e);
-    if (f == ff)
-        printf("\n case x: %d YES 🔥\n\n", f);
-    else
-        printf("\n case x: %d NOOO 💀\n\n", f);
-    if (g == gg)
-        printf("\n case %%%%: %d YES 🔥\n\n", g);
-    else
-        printf("\n case %%%%: %d NOOO 💀\n\n", g);
-    if (h == hh)
-        printf("\n case no specifiers: %d YES 🔥\n\n", h);
-    else
-        printf("\n case no specifiers: %d NOOO 💀\n\n", h);
-
-    // printf("⭐ Test case: CRAZY ⭐\n");
-    // if (ft_printf
-    // 	printf("\nYES 🔥\n\n");
-    // else
-    // 	printf("\nNOOO 💀\n\n");
-    return (0);
+	return (0);
 }
