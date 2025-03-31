@@ -6,7 +6,7 @@
 /*   By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 19:44:31 by mzhivoto          #+#    #+#             */
-/*   Updated: 2025/03/31 21:47:16 by mzhivoto         ###   ########.fr       */
+/*   Updated: 2025/03/31 21:58:57 by mzhivoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,32 +78,19 @@ int ft_printf(char *str, ...)
     va_start(args, str);
     while (str[i])
     {
-        if(str[i] == '%')
-        {
-            if (str[i + 1] == 's')
-            {
-                total_chars += ft_putstr(va_arg(args, char *));
-            }
-               
-            else if (str[i + 1] == 'd')
-            {
-               total_chars += ft_putnbr(va_arg(args, int));
-            }
-            else if (str[i + 1] == 'x')
-            {
-                total_chars += ft_puthex(va_arg(args, unsigned int));
-            }
-            else
-                total_chars += ft_putchar(str[i + 1]); 
-            i +=2;
-        }
+        if(str[i] == '%' && str[i + 1] == 's')
+            total_chars += ft_putstr(va_arg(args, char *));
+        else if (str[i] == '%' && str[i + 1] == 'd')
+            total_chars += ft_putnbr(va_arg(args, int));
+        else if (str[i] == '%' && str[i + 1] == 'x')
+            total_chars += ft_puthex(va_arg(args, unsigned int));
         else
-        {
-            total_chars += ft_putchar(str[i]);
+            total_chars += ft_putchar(str[i]); 
+        if (str[i] == '%')
+            i += 2;
+        else
             i++;
-        }
     }
-
     va_end(args);
     return total_chars;
 }
@@ -117,7 +104,7 @@ int main()
     // ft_putnbr(num);
     // write(1, "\n", 1);
 
-    ft_printf("Hello %s\n", "toto");
+    ft_printf("Hello my string %s\n", "toto");
     //out:Hello toto$
 
     ft_printf("Magic %s is %d\n", "number", 42);
