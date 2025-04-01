@@ -6,7 +6,7 @@
 /*   By: mzhivoto <mzhivoto@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 19:44:31 by mzhivoto          #+#    #+#             */
-/*   Updated: 2025/03/31 21:58:57 by mzhivoto         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:39:10 by mzhivoto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,6 @@ int ft_puthex(unsigned int n)
 
     hex_digits = "0123456789abcdef";
  
-    if (n == 0) 
-    {
-        count += ft_putchar('0');
-        return count;
-    }
- 
     if (n >= 16)
         count =count + ft_puthex(n / 16);
     count += ft_putchar(hex_digits[n % 16]);
@@ -105,12 +99,15 @@ int main()
     // write(1, "\n", 1);
 
     ft_printf("Hello my string %s\n", "toto");
+    printf("Hello my string %s\n", "toto");
     //out:Hello toto$
 
     ft_printf("Magic %s is %d\n", "number", 42);
+    printf("Magic %s is %d\n", "number", 42);
     //out:Magic number is 42%
 
     ft_printf("Hexadecimal for %d is %x\n", 42, 42);
+    printf("Hexadecimal for %d is %x\n", 42, 42);
     //out:Hexadecimal for 42 is 2a$
     return 0;
 }
